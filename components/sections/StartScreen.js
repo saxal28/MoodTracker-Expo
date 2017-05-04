@@ -1,7 +1,10 @@
 import React from 'react';
-import { View, Text } from 'react-native'; 
+import { View, Text } from 'react-native';
+import { Actions } from 'react-native-router-flux'
 
 import { Container, ImageBackground, Title, Subtitle, Logo, StyledButton } from "../common";
+
+const toCheckIn = () => Actions.checkIn();
 
 class StartScreen extends React.Component {
 
@@ -24,7 +27,7 @@ class StartScreen extends React.Component {
                         buttonStyle={{padding:15}}
                         raised backgroundColor="#20a941" 
                         fontWeight="bold"
-                        onPress={this.onClick.bind(this)}/>
+                        onPress={toCheckIn}/>
 
                     <StyledButton 
                         title="View Stats" raised backgroundColor="#e59524" 

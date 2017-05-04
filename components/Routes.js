@@ -1,7 +1,8 @@
 import React from "react";
 import { Actions, Scene } from "react-native-router-flux";
 import {
-    StartScreen
+    StartScreen,
+    CheckIn
 } from "./sections";
 // import Login from "./Login";
 // import LogDailyValues from "./LogDailyValues";
@@ -14,6 +15,7 @@ import {
 const scenes = Actions.create(
     <Scene key="app">
         <Scene key="startScreen" component={StartScreen} hideNavBar />
+        <Scene key="checkIn" component={CheckIn} hideNavBar={false} navigationBarStyle={{backgroundColor:'transparent'}}/>
             {/* <Scene key="login" component={Login} hideNavBar title="login" />
 
             <Scene key="logDailyValues" component={LogDailyValues} hideNavBar />
