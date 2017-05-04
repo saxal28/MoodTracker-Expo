@@ -3,3 +3,4 @@ export * from "./Title";
 export * from "./Subtitle";
 export * from './ImageBackground';
 export * from './Logo';
+export * from "./StyledButton";
