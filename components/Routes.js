@@ -4,6 +4,7 @@ import {
     StartScreen,
     CheckIn
 } from "./sections";
+import HomeMenu from "./sections/HomeMenu";
 // import Login from "./Login";
 // import LogDailyValues from "./LogDailyValues";
 // import Home from "./Home";
@@ -14,16 +15,19 @@ import {
 
 const scenes = Actions.create(
     <Scene key="app">
-        <Scene key="startScreen" component={StartScreen} hideNavBar />
-        <Scene key="checkIn" component={CheckIn} hideNavBar={false} navigationBarStyle={{backgroundColor:'transparent'}}/>
-            {/* <Scene key="login" component={Login} hideNavBar title="login" />
+        <Scene key="startScreen" component={StartScreen} hideNavBar text />
+        <Scene
+            key="checkIn"
+            component={CheckIn}
+            hideNavBar={false}
+            title="alan is cool"
+            navigationBarStyle={{backgroundColor:'transparent'}}
+            titleStyle={{color:'orange'}}
+        />
 
-            <Scene key="logDailyValues" component={LogDailyValues} hideNavBar />
-            <Scene key="home"   component={Home} hideNavBar/>
-            <Scene key="weight" component={Weight} hideNavBar/>
-            <Scene key="emotions" component={Emotions} hideNavBar/>
-            <Scene key="trends" component={Trends} hideNavBar/>
-            <Scene key="strength" component={Strength} hideNavBar /> */}
+
+            <Scene key="homeMenu" component={HomeMenu} hideNavBar />
+
     </Scene>
 );
 
