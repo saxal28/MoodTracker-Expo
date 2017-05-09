@@ -15,18 +15,17 @@ import HomeMenu from "./sections/HomeMenu";
 
 const scenes = Actions.create(
     <Scene key="app">
-        <Scene key="startScreen" component={StartScreen} hideNavBar text />
+        <Scene key="startScreen" component={StartScreen} hideNavBar />
         <Scene
             key="checkIn"
             component={CheckIn}
-            hideNavBar={false}
+            hideNavBar={true}
             title="alan is cool"
             navigationBarStyle={{backgroundColor:'transparent'}}
             titleStyle={{color:'orange'}}
         />
 
-
-            <Scene key="homeMenu" component={HomeMenu} hideNavBar />
+        <Scene key="homeMenu" component={HomeMenu} hideNavBar />
 
     </Scene>
 );

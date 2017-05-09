@@ -1,7 +1,10 @@
 import React from "react";
 import { Container, Title, ImageBackground, StyledButton } from "../common";
-import { Picker, View, } from "react-native";
+import { Picker, View, StatusBar} from "react-native";
 import {generateSmallRange} from "../../util/utilityFunctions";
+import {Subtitle} from "../common/Subtitle";
+import Icon from "react-native-elements/src/icons/Icon";
+import {Actions} from 'react-native-router-flux'
 
 class CheckIn extends React.Component {
 
@@ -21,10 +24,6 @@ class CheckIn extends React.Component {
         yesterdaysStats: {
             weight: null,
         }
-    }
-
-    componentWillMount() {
-        console.log(this.state.weight)
     }
 
     generatePickerWeights() {
@@ -49,7 +48,8 @@ class CheckIn extends React.Component {
     }
 
     handleSubmit() {
-        console.log("submitted")
+        console.log("submitted");
+        Actions.homeMenu();
     //
     }
 
@@ -63,10 +63,22 @@ class CheckIn extends React.Component {
 
         return (
 
-                <Container style={{justifyContent: "center", backgroundColor: "#333"}}>
-                    <Title style={{color:'white'}}>Check In</Title>
+                <Container style={{justifyContent: "center", backgroundColor: "royalblue"}}>
+
+                    {/* // TODO - make a section component */}
 
                     <View>
+                        <Title style={{color:'white'}}>Check In</Title>
+                        <Subtitle style={{color:'white'}}>Log Today's Weight</Subtitle>
+                        <Icon
+                            type="material-community"
+                            name="check"
+                            color="lime"
+
+                        />
+                    </View>
+
+                    <View style={{marginTop: 30, marginBottom: 30}}>
                         <Picker
                             style={pickerStyle}
                             onValueChange={changeWeight}
@@ -78,12 +90,14 @@ class CheckIn extends React.Component {
                         </Picker>
                     </View>
 
-                    <StyledButton
-                        title="Save"
-                        color="black"
-                        backgroundColor="white"
-                        onClick={handleSubmit}
-                        fontWeight="bold"/>
+                    <View>
+                        <StyledButton
+                            title="Save"
+                            color="black"
+                            backgroundColor="white"
+                            onPress={handleSubmit}
+                            fontWeight="bold"/>
+                    </View>
 
                 </Container>
 
