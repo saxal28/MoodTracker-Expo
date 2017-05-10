@@ -24,7 +24,7 @@ class Db {
             .catch((e) => {
                 console.log(e)
                 firebase.auth().createUserWithEmailAndPassword(email, password)
-                    .then(Actions.home())
+                    .then(Actions.home)
                     .catch(e => {
                         console.log(e.message);
                         loginFail(dispatch, e.message);
@@ -37,9 +37,14 @@ class Db {
 
         firebase.auth().signOut()
             .then (() => {
+                console.log("...logged out")
                 Actions.login();
             })
             .catch( e => console.log(e));
+    }
+
+    getCurrentUser() {
+
     }
 
     updateStats() {

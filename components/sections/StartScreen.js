@@ -5,9 +5,9 @@ import { Actions } from 'react-native-router-flux'
 import { Container, ImageBackground, Title, Subtitle, Logo, StyledButton } from "../common";
 import {AppDatabase} from "../../services/Firebase";
 
-const toCheckIn = () => Actions.checkIn();
+const toCheckIn = () => Actions.loginPage();
 
-class StartScreen extends React.Component {
+export default class StartScreen extends React.Component {
 
     componentWillMount(){
 
@@ -59,6 +59,3 @@ class StartScreen extends React.Component {
         )
     }
 }
-
-
-export {StartScreen}

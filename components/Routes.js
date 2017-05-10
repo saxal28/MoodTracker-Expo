@@ -1,37 +1,20 @@
 import React from "react";
 import { Actions, Scene } from "react-native-router-flux";
-import {
-    StartScreen,
-    CheckIn
-} from "./sections";
-import HomeMenu from "./sections/HomeMenu";
-import FullScreenLoader from "./common/FullScreenLoader";
-// import Login from "./Login";
-// import LogDailyValues from "./LogDailyValues";
-// import Home from "./Home";
-// import Weight from "./Weight";
-// import Emotions from "./Emotions";
-// import Trends from "./Trends";
-// import Strength from "./Strength";
+import {StartScreen} from "./sections";
+import Home from "./sections/Home";
+import Login from "./sections/Login";
 
 const scenes = Actions.create(
-    <Scene key="app">
-        <Scene key="startScreen" component={FullScreenLoader} hideNavBar />
-        <Scene
-            key="checkIn"
-            component={CheckIn}
-            hideNavBar={true}
-            title="alan is cool"
-            navigationBarStyle={{backgroundColor:'transparent'}}
-            titleStyle={{color:'orange'}}
-        />
 
-        <Scene key="homeMenu" component={HomeMenu} hideNavBar />
-        <Scene key="homeMenu" component={FullScreenLoader} hideNavBar />
+    <Scene key="main">
 
-
+        <Scene key="login" component={Login} />
+        <Scene key="startScreen" component={StartScreen} />
+        <Scene key="checkIn" component={CheckIn} />
+        <Scene key="home" component={Home} />
 
     </Scene>
+
 );
 
 export default scenes;

@@ -4,9 +4,11 @@ import { Picker, View, StatusBar} from "react-native";
 import {generateSmallRange} from "../../util/utilityFunctions";
 import {Subtitle} from "../common/Subtitle";
 import Icon from "react-native-elements/src/icons/Icon";
-import {Actions} from 'react-native-router-flux'
+import { Actions } from 'react-native-router-flux';
 
-class CheckIn extends React.Component {
+const handleSubmit = () => Actions.home();
+
+export default class CheckIn extends React.Component {
 
     // - TODO - kick state out into store
 
@@ -47,16 +49,9 @@ class CheckIn extends React.Component {
         console.log(e)
     }
 
-    handleSubmit() {
-        console.log("submitted");
-        Actions.homeMenu();
-    //
-    }
-
     render() {
 
         const changeWeight = this.changeWeight.bind(this);
-        const handleSubmit = this.handleSubmit.bind(this);
 
         const { weight } = this.state;
         const { pickerContainerStyle, pickerStyle } = styles;
@@ -114,5 +109,3 @@ const styles = {
 
     }
 }
-
-export { CheckIn }
