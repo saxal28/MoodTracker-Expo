@@ -3,18 +3,28 @@ import { View, Text } from 'react-native';
 import { Actions } from 'react-native-router-flux'
 
 import { Container, ImageBackground, Title, Subtitle, Logo, StyledButton } from "../common";
+import {AppDatabase} from "../../services/Firebase";
 
 const toCheckIn = () => Actions.checkIn();
 
 class StartScreen extends React.Component {
 
-    onClick() {
+    componentWillMount(){
+
+        AppDatabase.initializeFirebase()
+        AppDatabase.createUser();
+    }
+
+    handlePress() {
         console.log('hi')
     }
 
     render(){
+        const handlePress = this.handlePress.bind(this)
+
         return (
             <ImageBackground imageLink={require("../../assets/images/graphWallpaper.png")} >
+
                 <Container>
 
                     <View style={{marginBottom: 20}}>
@@ -33,7 +43,7 @@ class StartScreen extends React.Component {
                         title="View Stats" raised backgroundColor="#e59524" 
                         buttonStyle={{padding:15}}
                         fontWeight="bold"
-                        onPress={this.onClick.bind(this)}/>
+                        onPress={handlePress}/>
 
                     <StyledButton 
                         title="Dashboard" rimportaised 
@@ -41,9 +51,10 @@ class StartScreen extends React.Component {
                         backgroundColor="white" 
                         color="black"
                         fontWeight="bold"
-                        onPress={this.onClick.bind(this)}/>
+                        onPress={handlePress}/>
 
                 </Container>
+
             </ImageBackground>
         )
     }

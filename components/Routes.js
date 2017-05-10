@@ -5,6 +5,7 @@ import {
     CheckIn
 } from "./sections";
 import HomeMenu from "./sections/HomeMenu";
+import FullScreenLoader from "./common/FullScreenLoader";
 // import Login from "./Login";
 // import LogDailyValues from "./LogDailyValues";
 // import Home from "./Home";
@@ -15,7 +16,7 @@ import HomeMenu from "./sections/HomeMenu";
 
 const scenes = Actions.create(
     <Scene key="app">
-        <Scene key="startScreen" component={StartScreen} hideNavBar />
+        <Scene key="startScreen" component={FullScreenLoader} hideNavBar />
         <Scene
             key="checkIn"
             component={CheckIn}
@@ -26,6 +27,9 @@ const scenes = Actions.create(
         />
 
         <Scene key="homeMenu" component={HomeMenu} hideNavBar />
+        <Scene key="homeMenu" component={FullScreenLoader} hideNavBar />
+
+
 
     </Scene>
 );
