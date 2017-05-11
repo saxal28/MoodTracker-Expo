@@ -16,17 +16,17 @@ const StyledButton = ({
             iconRight={iconRight}
             icon={icon}
 
-            backgroundColor={backgroundColor}
+            backgroundColor={backgroundColor || "royalblue"}
             borderRadius={borderRadius}
 
             color={color}
             fontSize={fontSize}
-            fontWeight={fontWeight}
+            fontWeight={fontWeight || 'bold'}
             
             textStyle={textStyle}
             buttonStyle={buttonStyle}
             underlayColor={underlayColor}
-            raised={raised}
+            raised={raised || true}
             large={large}
 
             disabled={disabled}

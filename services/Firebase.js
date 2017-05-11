@@ -9,6 +9,8 @@ class Db {
 
 
     initializeFirebase() {
+
+        //load user and data and push to MainStore
         console.log("initializing database....");
     }
 
@@ -19,15 +21,20 @@ class Db {
     loginUser(email, password){
         console.log("logging user in...");
         firebase.auth().signInWithEmailAndPassword(email, password)
-            .then(user => loginSuccess(dispatch, user))
+            .then((user) => {
+                console.log("login success!", user);
+                Actions.home();
+            })
             //if user doesnt exist, create user
             .catch((e) => {
                 console.log(e)
                 firebase.auth().createUserWithEmailAndPassword(email, password)
-                    .then(Actions.home)
+                    .then((user) => {
+                        console.log("create user success!", user);
+                        Actions.home();
+                    })
                     .catch(e => {
                         console.log(e.message);
-                        loginFail(dispatch, e.message);
                     });
             });
     }
@@ -44,15 +51,52 @@ class Db {
     }
 
     getCurrentUser() {
-
+        return firebase.auth().currentUser;
     }
 
-    updateStats() {
-        console.log("updating weight....");
+    saveStats(weight, date) {
+
+    const { currentUser } = firebase.auth();
+
+        const statsObj = { weight, date };
+
+        firebase.database().ref(`/users/${currentUser.uid}/stats`)
+            .push(statsObj)
+            .then((stats) => {
+                Actions.home({type: "reset", todaysStats: statsObj});
+            })
+            .catch(e => console.log(e));
+
+    };
+
+    updateStats(weight, date, uid) {
+
+    const { currentUser } = firebase.auth();
+    const statsObj = { weight, emotion, date, uid }
+
+    firebase.database().ref(`/users/${currentUser.uid}/stats/${uid}`)
+        .set(statsObj)
+        .then((stats) => {
+            console.log("success", stats)
+            Actions.home();
+            })
+            .catch(e => console.log(e));
+    };
+
+    getWeight() {
+
+        const { currentUser } = firebase.auth();
+
+        firebase.database().ref(`/users/${currentUser.uid}/stats`)
+            .on('value', snapshot => {
+
+                console.log('fetching data', snapshot.val())
+                return snapshot.val();
+            });
     }
 
 }
 
-const AppDatabase = new Db();
+const Firebase = new Db();
 
-export {AppDatabase}
+export {Firebase}

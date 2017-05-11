@@ -3,16 +3,28 @@ import { View, Text } from 'react-native';
 import { Actions } from 'react-native-router-flux'
 
 import { Container, ImageBackground, Title, Subtitle, Logo, StyledButton } from "../common";
-import {AppDatabase} from "../../services/Firebase";
+import {Firebase} from "../../services/Firebase";
 
-const toCheckIn = () => Actions.loginPage();
+const toCheckIn = () => Actions.login();
 
-export default class StartScreen extends React.Component {
+class StartScreen extends React.Component {
+
+    state = { loading: true }
 
     componentWillMount(){
 
-        AppDatabase.initializeFirebase()
-        AppDatabase.createUser();
+        // get all the data from the database
+        // render FullScreenSpinner until loaded and into store;
+        Firebase.initializeFirebase()
+
+    }
+
+    toCheckIn() {
+        if (Firebase.getCurrentUser()) {
+            return Actions.checkIn();
+        }
+
+        return Actions.login();
     }
 
     handlePress() {
@@ -20,12 +32,12 @@ export default class StartScreen extends React.Component {
     }
 
     render(){
-        const handlePress = this.handlePress.bind(this)
+        const handlePress = this.handlePress.bind(this);
+        const toCheckIn = this.toCheckIn.bind(this);
 
         return (
-            <ImageBackground imageLink={require("../../assets/images/graphWallpaper.png")} >
 
-                <Container>
+                <Container style={{backgroundColor: 'royalblue'}}>
 
                     <View style={{marginBottom: 20}}>
                         <Title style={{color:'white'}}>Tracker</Title>
@@ -55,7 +67,8 @@ export default class StartScreen extends React.Component {
 
                 </Container>
 
-            </ImageBackground>
         )
     }
 }
+
+export default StartScreen
