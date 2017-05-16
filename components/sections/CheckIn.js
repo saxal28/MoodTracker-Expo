@@ -1,60 +1,59 @@
 import React from "react";
 import { Container, Title, ImageBackground, StyledButton } from "../common";
 import { Picker, View, StatusBar} from "react-native";
-import {generateSmallRange} from "../../util/utilityFunctions";
+import {formatDisplayDate, generateSmallRange} from "../../util/utilityFunctions";
 import {Subtitle} from "../common/Subtitle";
 import Icon from "react-native-elements/src/icons/Icon";
 import { Actions } from 'react-native-router-flux';
+import DatePicker from "react-native-datepicker";
+import UserStore from "../../stores/UserStore";
+
+import {observer} from 'mobx-react';
 
 const handleSubmit = () => Actions.home();
+const setWeight = e => UserStore.setDailyWeight("weight", e);
+const setDate = e => UserStore.setDailyWeight("date", e);
 
+@observer
 export default class CheckIn extends React.Component {
 
-    // - TODO - kick state out into store
-
-    state = {
-        values: [],
-        error: "",
-        weight: 145.2,
-        emotion: "happy",
-        uid: null,
-        edit: false,
-        alreadyLogged: false,
-        message: "Scroll to Log!",
-        date: null,
-        generatedPickerRange: 150,
-        yesterdaysStats: {
-            weight: null,
-        }
+    componentWillMount() {
+        UserStore.checkStore()
     }
 
     generatePickerWeights() {
-        const {generatedPickerRange, weight} = this.state;
+
+        const {generatedPickerRange} = UserStore.store.dailyWeight;
 
         let min = generatedPickerRange - 10;
-        let max = min + 10;
+        let max = min + 20;
         var arr = generateSmallRange(min, max);
 
         return arr.map(num => {
-            console.log(this.state.weight, arr)
             return (
                 <Picker.Item label={num} value={Number(num)} key={num} color="white"/>
             )
         })
     }
 
-    // TODO - save in store instead of state
-    changeWeight(e) {
-        this.setState({weight: e});
-        console.log(e)
+    formatDisplayDate() {
+        const {date} = UserStore.store.dailyWeight
+        return formatDisplayDate(date);
+    }
+
+    saveStats() {
+        const { dailyWeight } = UserStore.store;
+        UserStore.setDailyWeight("alreadyLogged", true);
+        UserStore.saveDailyStats(dailyWeight);
     }
 
     render() {
 
-        const changeWeight = this.changeWeight.bind(this);
+        const { weight, date, alreadyLogged } = UserStore.store.dailyWeight;
 
-        const { weight } = this.state;
-        const { pickerContainerStyle, pickerStyle } = styles;
+        const formatDisplayDate = this.formatDisplayDate.bind(this);
+        const saveStats         = this.saveStats.bind(this);
+        const { pickerContainerStyle, pickerStyle, viewStyle, checkmarkStyle } = styles;
 
         return (
 
@@ -62,35 +61,76 @@ export default class CheckIn extends React.Component {
 
                     {/* // TODO - make a section component */}
 
-                    <View>
-                        <Title style={{color:'white'}}>Check In</Title>
-                        <Subtitle style={{color:'white'}}>Log Today's Weight</Subtitle>
-                        <Icon
-                            type="material-community"
-                            name="check"
-                            color="lime"
+                    <StatusBar barStyle="light-content"/>
 
-                        />
+                    <View>
+
+                        <Title style={{color:'white'}}>Check In{weight}</Title>
+
+                        <Subtitle style={{color:'white'}}>
+                            {formatDisplayDate()}
+                            <DatePicker
+                                style={{height: 40, width: 40, marginLeft: 10}}
+                                date={date}
+                                mode="date"
+                                placeholder="select date"
+                                format="YYYY-MM-DD"
+                                minDate="2016-05-01"
+                                maxDate="2018-06-01"
+                                confirmBtnText="Confirm"
+                                cancelBtnText="Cancel"
+                                customStyles={{dateInput: {display: 'none'}}}
+                                onDateChange={setDate}
+                            />
+                        </Subtitle>
+
                     </View>
 
-                    <View style={{marginTop: 30, marginBottom: 30}}>
+                    <View style={viewStyle}>
+
+                        { alreadyLogged ?
+
+                            <Icon
+                                type="material-community"
+                                name="check"
+                                color="lime"
+                                size={60}
+                            /> :
+
+                            <Icon
+                                type="material-community"
+                                name="check"
+                                color="lime"
+                                size={60}
+                            />
+
+                        }
+
+
+                    </View>
+
+                    <View style={viewStyle}>
+
                         <Picker
-                            style={pickerStyle}
-                            onValueChange={changeWeight}
-                            value={weight}
-                            selectedValue={weight}>
+                        style={pickerStyle}
+                        onValueChange={setWeight}
+                        value={weight}
+                        selectedValue={weight}>
 
                             {this.generatePickerWeights()}
 
                         </Picker>
+
                     </View>
+
+                    {/*TODO -- create a note modal*/}
 
                     <View>
                         <StyledButton
                             title="Save"
                             color="black"
                             backgroundColor="white"
-                            onPress={handleSubmit}
+                            onPress={saveStats}
                             fontWeight="bold"/>
                     </View>
 
@@ -105,7 +145,18 @@ const styles = {
     pickerContainerStyle: {
         bottom: '0px',
     },
+    viewStyle: {
+        marginTop: 20,
+        marginBottom: 20,
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: "center"
+    },
     pickerStyle: {
-
+        flex: 1,
+    },
+    checkmarkStyle: {
+        fontSize: 25,
+        fontWeight: "bold"
     }
 }

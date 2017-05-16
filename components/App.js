@@ -17,9 +17,8 @@ class App extends React.Component {
             storageBucket: "moodtracker-d47d7.appspot.com",
             messagingSenderId: "808622200328"
         };
-        firebase.initializeApp(config);
+        firebase.initializeApp(config)
 
-        console.log("firebase initialized")
     }
 
     render(){

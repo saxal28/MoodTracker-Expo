@@ -5,19 +5,15 @@ import {Container} from "../common/Container";
 import {StyledButton} from "../common/StyledButton";
 import {Title} from "../common/Title";
 import {Subtitle} from "../common/Subtitle";
-import UserStore from "../../stores/Store";
 import {observer} from "mobx-react";
 import FormLabel from "react-native-elements/src/form/FormLabel";
 import FormInput from "react-native-elements/src/form/FormInput";
 import {Firebase} from "../../services/Firebase";
+import UserStore from "../../stores/UserStore";
 
 
 @observer
 export default class Login extends Component {
-
-    componentWillMount(){
-        UserStore.checkStore();
-    }
 
     onChangeUsername(e) {
         UserStore.setStateProp('username', e);
@@ -38,7 +34,6 @@ export default class Login extends Component {
     render() {
 
         const {viewStyle} = styles;
-        const {username,password} = UserStore.store;
         const onChangeUsername = this.onChangeUsername.bind(this);
         const onChangePassword = this.onChangePassword.bind(this);
         const loginUser = this.loginUser.bind(this);
@@ -48,7 +43,7 @@ export default class Login extends Component {
             <Container>
 
                 <Title>Login</Title>
-                <Subtitle>Or Register! {username}</Subtitle>
+                <Subtitle>Or Register!</Subtitle>
 
                 <View style={viewStyle}>
 

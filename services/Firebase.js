@@ -4,13 +4,14 @@
 
 import firebase from "firebase";
 import { Actions } from 'react-native-router-flux';
+import UserStore from "../stores/UserStore";
 
 class Db {
 
 
     initializeFirebase() {
 
-        //load user and data and push to MainStore
+        //load user and data and push to UserStore
         console.log("initializing database....");
     }
 
@@ -54,16 +55,15 @@ class Db {
         return firebase.auth().currentUser;
     }
 
-    saveStats(weight, date) {
+    saveStats(dailyWeight) {
 
     const { currentUser } = firebase.auth();
 
-        const statsObj = { weight, date };
-
         firebase.database().ref(`/users/${currentUser.uid}/stats`)
-            .push(statsObj)
+            .push(dailyWeight)
             .then((stats) => {
-                Actions.home({type: "reset", todaysStats: statsObj});
+                console.log("stats saved", stats)
+                Actions.home();
             })
             .catch(e => console.log(e));
 
@@ -72,15 +72,15 @@ class Db {
     updateStats(weight, date, uid) {
 
     const { currentUser } = firebase.auth();
-    const statsObj = { weight, emotion, date, uid }
+    const statsObj = { weight, date, uid }
 
     firebase.database().ref(`/users/${currentUser.uid}/stats/${uid}`)
         .set(statsObj)
         .then((stats) => {
-            console.log("success", stats)
+            console.log("stats updated", stats)
             Actions.home();
-            })
-            .catch(e => console.log(e));
+        })
+        .catch(e => console.log(e));
     };
 
     getWeight() {
@@ -89,9 +89,7 @@ class Db {
 
         firebase.database().ref(`/users/${currentUser.uid}/stats`)
             .on('value', snapshot => {
-
-                console.log('fetching data', snapshot.val())
-                return snapshot.val();
+                UserStore.initializeStats(snapshot.val());
             });
     }
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import {View, Text, StatusBar} from 'react-native';
 import { Actions } from 'react-native-router-flux'
 
 import { Container, ImageBackground, Title, Subtitle, Logo, StyledButton } from "../common";
@@ -15,8 +15,12 @@ class StartScreen extends React.Component {
 
         // get all the data from the database
         // render FullScreenSpinner until loaded and into store;
-        Firebase.initializeFirebase()
+        Firebase.initializeFirebase();
 
+    }
+
+    componentDidMount() {
+        console.log(Firebase.getCurrentUser());
     }
 
     toCheckIn() {
@@ -38,6 +42,8 @@ class StartScreen extends React.Component {
         return (
 
                 <Container style={{backgroundColor: 'royalblue'}}>
+
+                    <StatusBar barStyle="light-content"/>
 
                     <View style={{marginBottom: 20}}>
                         <Title style={{color:'white'}}>Tracker</Title>
