@@ -42,8 +42,8 @@ const StyledButton = ({
 
 const styles = {
     buttonStyle: {
-        maxWidth:400, 
-        marginTop: 0, 
+        maxWidth:400,
+        marginTop: 0,
         paddingTop: 10,
         shadowColor:"#333",
         shadowOpacity: 0.8,

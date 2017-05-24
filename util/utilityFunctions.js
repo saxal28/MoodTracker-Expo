@@ -47,6 +47,9 @@ const formatFullDate =  (date) => {
 
 // Tue, Jan 12
 const formatDisplayDate = (date) => {
+
+    console.log("date passed in", date)
+
     date = new Date(date);
     const month = months[date.getMonth()];
     const day = date.getDate();

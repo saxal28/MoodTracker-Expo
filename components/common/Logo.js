@@ -5,7 +5,7 @@ const Logo = ({style}) => {
     return (
         <View style={styles.viewStyle}>
             <Image 
-                source={require('../../assets/images/logo2.png')}
+                source={require('../../assets/images/tracker-logo.png')}
                 style={styles.imageStyle}
             />
         </View>
@@ -15,11 +15,13 @@ const Logo = ({style}) => {
 const styles = {
     imageStyle: {
         height: 200,
-        width: 200
+        flexGrow:1,
+        alignSelf: 'center'
     },
     viewStyle: {
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        padding: 10
     }
 }
 

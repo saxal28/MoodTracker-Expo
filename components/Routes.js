@@ -4,6 +4,7 @@ import Home from "./sections/Home";
 import Login from "./sections/Login";
 import CheckIn from "./sections/CheckIn";
 import StartScreen from "./sections/StartScreen";
+import Stats from "./sections/Stats";
 
 const scenes = Actions.create(
 
@@ -13,6 +14,7 @@ const scenes = Actions.create(
         <Scene key="login" component={Login} />
         <Scene key="checkIn" component={CheckIn} />
         <Scene key="home" component={Home} />
+        <Scene key="stats" component={Stats} />
 
     </Scene>
 

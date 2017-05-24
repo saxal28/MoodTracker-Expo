@@ -6,6 +6,8 @@ import { Container, ImageBackground, Title, Subtitle, Logo, StyledButton } from 
 import {Firebase} from "../../services/Firebase";
 
 const toCheckIn = () => Actions.login();
+const toHome = () => Actions.home();
+const toStats = () => Actions.stats();
 
 class StartScreen extends React.Component {
 
@@ -37,31 +39,33 @@ class StartScreen extends React.Component {
 
     render(){
         const handlePress = this.handlePress.bind(this);
-        const toCheckIn = this.toCheckIn.bind(this);
 
         return (
 
-                <Container style={{backgroundColor: 'royalblue'}}>
+            <ImageBackground imageLink={require("../../assets/images/wallpaper-colors.jpg")}>
 
                     <StatusBar barStyle="light-content"/>
 
-                    <View style={{marginBottom: 20}}>
-                        <Title style={{color:'white'}}>Tracker</Title>
-                        <Subtitle style={{color:'white'}}>What do you want to do?</Subtitle>
-                    </View>
+
+                    <Logo />
+
 
                     <StyledButton 
                         title="Check-In" 
                         buttonStyle={{padding:15}}
-                        raised backgroundColor="#20a941" 
+                        raised backgroundColor="white"
                         fontWeight="bold"
+                        color="black"
+                        borderRadius={40}
                         onPress={toCheckIn}/>
 
                     <StyledButton 
-                        title="View Stats" raised backgroundColor="#e59524" 
+                        title="View Stats" raised backgroundColor="white"
                         buttonStyle={{padding:15}}
                         fontWeight="bold"
-                        onPress={handlePress}/>
+                        color="black"
+                        borderRadius={40}
+                        onPress={toStats}/>
 
                     <StyledButton 
                         title="Dashboard" rimportaised 
@@ -69,9 +73,10 @@ class StartScreen extends React.Component {
                         backgroundColor="white" 
                         color="black"
                         fontWeight="bold"
-                        onPress={handlePress}/>
+                        borderRadius={40}
+                        onPress={toHome}/>
 
-                </Container>
+            </ImageBackground>
 
         )
     }

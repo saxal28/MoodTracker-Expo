@@ -5,10 +5,11 @@ import {Firebase} from "../../services/Firebase";
 import {StyledButton} from "../common/StyledButton";
 import { Actions } from "react-native-router-flux";
 
-class Home extends Component {
+const logoutUser = () => Firebase.logoutUser;
+const toMenu = () => Actions.startScreen();
+const toStats = () => Actions.stats();
 
-    logoutUser() { Firebase.logoutUser() }
-    goToMenu() { Actions.startScreen() }
+class Home extends Component {
 
     render() {
 
@@ -19,8 +20,8 @@ class Home extends Component {
             <Container>
                 <Title>Home Page</Title>
                 <StyledButton title="Logout" onPress={logoutUser}/>
-                <StyledButton title="Menu" onPress={goToMenu} backgroundColor="firebrick"/>
-                <StyledButton title="Stats" onPress={logoutUser}/>
+                <StyledButton title="Menu" onPress={toMenu} backgroundColor="firebrick"/>
+                <StyledButton title="Stats" onPress={toStats}/>
             </Container>
         )
     }
