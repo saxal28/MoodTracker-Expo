@@ -5,9 +5,17 @@ import { Actions } from 'react-native-router-flux'
 import { Container, ImageBackground, Title, Subtitle, Logo, StyledButton } from "../common";
 import {Firebase} from "../../services/Firebase";
 
-const toCheckIn = () => Actions.login();
 const toHome = () => Actions.home();
 const toStats = () => Actions.stats();
+const toCheckIn = () => {
+
+	if (Firebase.getCurrentUser()) {
+		return Actions.checkIn();
+	}
+
+	return Actions.login();
+
+}
 
 class StartScreen extends React.Component {
 
@@ -25,20 +33,7 @@ class StartScreen extends React.Component {
         console.log(Firebase.getCurrentUser());
     }
 
-    toCheckIn() {
-        if (Firebase.getCurrentUser()) {
-            return Actions.checkIn();
-        }
-
-        return Actions.login();
-    }
-
-    handlePress() {
-        console.log('hi')
-    }
-
     render(){
-        const handlePress = this.handlePress.bind(this);
 
         return (
 
@@ -46,9 +41,7 @@ class StartScreen extends React.Component {
 
                     <StatusBar barStyle="light-content"/>
 
-
                     <Logo />
-
 
                     <StyledButton 
                         title="Check-In" 

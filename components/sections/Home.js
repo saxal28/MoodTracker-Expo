@@ -13,9 +13,6 @@ class Home extends Component {
 
     render() {
 
-        const logoutUser = this.logoutUser.bind(this);
-        const goToMenu = this.goToMenu.bind(this);
-
         return (
             <Container>
                 <Title>Home Page</Title>

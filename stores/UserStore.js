@@ -28,11 +28,6 @@ class Store {
 
     @action initializeStats(arr) {
 
-        arr.forEach(obj => {
-            console.log(obj.weight);
-            this.store.weight.push(obj)
-        })
-        console.log("initialized weight!");
     }
 
     @action setDailyWeight(field, value) {

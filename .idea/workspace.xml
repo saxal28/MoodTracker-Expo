@@ -3,13 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="19d376ae-3702-4bb6-acd5-08100af2b0e9" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/Routes.js" afterPath="$PROJECT_DIR$/components/Routes.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/common/ImageBackground.js" afterPath="$PROJECT_DIR$/components/common/ImageBackground.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/common/Logo.js" afterPath="$PROJECT_DIR$/components/common/Logo.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/common/StyledButton.js" afterPath="$PROJECT_DIR$/components/common/StyledButton.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/sections/Home.js" afterPath="$PROJECT_DIR$/components/sections/Home.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/sections/StartScreen.js" afterPath="$PROJECT_DIR$/components/sections/StartScreen.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/util/utilityFunctions.js" afterPath="$PROJECT_DIR$/util/utilityFunctions.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/sections/Stats.js" afterPath="$PROJECT_DIR$/components/sections/Stats.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/services/Firebase.js" afterPath="$PROJECT_DIR$/services/Firebase.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/stores/UserStore.js" afterPath="$PROJECT_DIR$/stores/UserStore.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -39,8 +37,8 @@
       <file leaf-file-name="UserStore.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/stores/UserStore.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="12" column="18" lean-forward="false" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
+            <state relative-caret-position="150">
+              <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
               <folding>
                 <element signature="e#0#24#0" expanded="true" />
               </folding>
@@ -48,11 +46,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="utilityFunctions.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/util/utilityFunctions.js">
+      <file leaf-file-name="Login.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/components/sections/Login.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="575">
-              <caret line="50" column="38" lean-forward="false" selection-start-line="50" selection-start-column="38" selection-end-line="50" selection-end-column="38" />
+            <state relative-caret-position="480">
+              <caret line="43" column="0" lean-forward="true" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -61,8 +59,8 @@
       <file leaf-file-name="StartScreen.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/components/sections/StartScreen.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="199">
-              <caret line="49" column="20" lean-forward="false" selection-start-line="49" selection-start-column="20" selection-end-line="49" selection-end-column="20" />
+            <state relative-caret-position="239">
+              <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -70,11 +68,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ImageBackground.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/components/common/ImageBackground.js">
+      <file leaf-file-name="Home.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/components/sections/Home.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="14" lean-forward="false" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
+            <state relative-caret-position="135">
+              <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Stats.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/components/sections/Stats.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="7" column="24" lean-forward="false" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -82,13 +90,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Logo.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/components/common/Logo.js">
+      <file leaf-file-name="Firebase.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/services/Firebase.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" column="19" lean-forward="false" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
+            <state relative-caret-position="243">
+              <caret line="92" column="37" lean-forward="false" selection-start-line="92" selection-start-column="37" selection-end-line="92" selection-end-column="37" />
               <folding>
-                <element signature="e#0#26#0" expanded="true" />
+                <element signature="n#!!doc" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -160,19 +168,19 @@
         <option value="$PROJECT_DIR$/stores/Store.js" />
         <option value="$PROJECT_DIR$/components/sections/Login.js" />
         <option value="$PROJECT_DIR$/components/common/Title.js" />
-        <option value="$PROJECT_DIR$/services/Firebase.js" />
         <option value="$PROJECT_DIR$/components/sections/CheckIn.js" />
         <option value="$PROJECT_DIR$/util/utilityFunctions.js" />
-        <option value="$PROJECT_DIR$/stores/UserStore.js" />
         <option value="$PROJECT_DIR$/components/Routes.js" />
-        <option value="$PROJECT_DIR$/components/sections/Home.js" />
         <option value="$PROJECT_DIR$/components/common/ScrollableContainer.js" />
         <option value="$PROJECT_DIR$/components/sections/Stats.jsx" />
-        <option value="$PROJECT_DIR$/components/sections/Stats.js" />
         <option value="$PROJECT_DIR$/components/common/StyledButton.js" />
         <option value="$PROJECT_DIR$/components/common/ImageBackground.js" />
-        <option value="$PROJECT_DIR$/components/sections/StartScreen.js" />
         <option value="$PROJECT_DIR$/components/common/Logo.js" />
+        <option value="$PROJECT_DIR$/components/sections/Home.js" />
+        <option value="$PROJECT_DIR$/components/sections/StartScreen.js" />
+        <option value="$PROJECT_DIR$/stores/UserStore.js" />
+        <option value="$PROJECT_DIR$/components/sections/Stats.js" />
+        <option value="$PROJECT_DIR$/services/Firebase.js" />
       </list>
     </option>
   </component>
@@ -341,7 +349,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="nodejs_interpreter_path" value="/usr/local/bin/node" />
-    <property name="SearchEverywhereHistoryKey" value="Sty&#9;FILE&#9;file:///Users/alan/Documents/React Native/MoodTracker-Expo/components/common/StyledButton.js&#10;App&#9;FILE&#9;file:///Users/alan/Documents/React Native/MoodTracker-Expo/components/App.js&#10;Data&#9;null&#9;null&#10;Route&#9;FILE&#9;file:///Users/alan/Documents/React Native/MoodTracker-Expo/components/Routes.js" />
+    <property name="SearchEverywhereHistoryKey" value="/use&#9;FILE&#9;file:///Users/alan/Documents/React Native/MoodTracker-Expo/stores/UserStore.js&#10;Fire&#9;FILE&#9;file:///Users/alan/Documents/React Native/MoodTracker-Expo/services/Firebase.js&#10;Home&#9;FILE&#9;file:///Users/alan/Documents/React Native/MoodTracker-Expo/components/sections/Home.js&#10;Sty&#9;FILE&#9;file:///Users/alan/Documents/React Native/MoodTracker-Expo/components/common/StyledButton.js&#10;App&#9;FILE&#9;file:///Users/alan/Documents/React Native/MoodTracker-Expo/components/App.js&#10;Data&#9;null&#9;null&#10;Route&#9;FILE&#9;file:///Users/alan/Documents/React Native/MoodTracker-Expo/components/Routes.js" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -452,12 +460,12 @@
       <workItem from="1494552689414" duration="1260000" />
       <workItem from="1494895149362" duration="8210000" />
       <workItem from="1495302510398" duration="2278000" />
-      <workItem from="1495593062972" duration="1962000" />
+      <workItem from="1495593062972" duration="3071000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="37708000" />
+    <option name="totallyTimeSpent" value="38817000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="797" extended-state="0" />
@@ -550,9 +558,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="1" column="24" lean-forward="false" selection-start-line="1" selection-start-column="24" selection-end-line="1" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#41#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -598,9 +604,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="10" column="9" lean-forward="true" selection-start-line="10" selection-start-column="9" selection-end-line="10" selection-end-column="9" />
-          <folding>
-            <element signature="e#0#41#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -767,6 +771,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="10" column="6" lean-forward="false" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -788,16 +793,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/components/sections/Login.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="439">
-          <caret line="43" column="0" lean-forward="true" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#51#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/components/common/Container.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -812,16 +807,6 @@
           <caret line="0" column="7" lean-forward="false" selection-start-line="0" selection-start-column="7" selection-end-line="0" selection-end-column="7" />
           <folding>
             <element signature="e#0#26#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/sections/Home.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="44" lean-forward="false" selection-start-line="7" selection-start-column="44" selection-end-line="7" selection-end-column="44" />
-          <folding>
-            <element signature="e#0#41#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -844,49 +829,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/components/sections/Stats.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="1" lean-forward="false" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/services/Firebase.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="71" column="36" lean-forward="false" selection-start-line="71" selection-start-column="36" selection-end-line="71" selection-end-column="36" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assets/images/wallpaper-colors.jpg">
       <provider selected="true" editor-type-id="images">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/stores/UserStore.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="18" lean-forward="false" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#24#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/sections/CheckIn.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/components/common/StyledButton.js">
@@ -912,22 +857,78 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/components/sections/StartScreen.js">
+    <entry file="file://$PROJECT_DIR$/components/common/Logo.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="49" column="20" lean-forward="false" selection-start-line="49" selection-start-column="20" selection-end-line="49" selection-end-column="20" />
+        <state relative-caret-position="330">
+          <caret line="22" column="13" lean-forward="true" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/components/common/Logo.js">
+    <entry file="file://$PROJECT_DIR$/components/sections/Login.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="19" lean-forward="false" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
+        <state relative-caret-position="480">
+          <caret line="43" column="0" lean-forward="true" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/sections/StartScreen.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="239">
+          <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/sections/CheckIn.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stores/UserStore.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#24#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/sections/Home.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/sections/Stats.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="24" lean-forward="false" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/services/Firebase.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="92" column="37" lean-forward="false" selection-start-line="92" selection-start-column="37" selection-end-line="92" selection-end-column="37" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
           </folding>
         </state>
       </provider>

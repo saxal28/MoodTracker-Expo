@@ -22,16 +22,16 @@ class Db {
     loginUser(email, password){
         console.log("logging user in...");
         firebase.auth().signInWithEmailAndPassword(email, password)
-            .then((user) => {
-                console.log("login success!", user);
+            .then(() => {
+                console.log("login success!");
                 Actions.home();
             })
             //if user doesnt exist, create user
             .catch((e) => {
                 console.log(e)
                 firebase.auth().createUserWithEmailAndPassword(email, password)
-                    .then((user) => {
-                        console.log("create user success!", user);
+                    .then(() => {
+                        console.log("create user success!");
                         Actions.home();
                     })
                     .catch(e => {
@@ -89,7 +89,8 @@ class Db {
 
         firebase.database().ref(`/users/${currentUser.uid}/stats`)
             .on('value', snapshot => {
-                UserStore.initializeStats(snapshot.val());
+                UserStore.initializeStats(snapshot);
+                return snapshot.val();
             });
     }
 
