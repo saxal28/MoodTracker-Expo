@@ -11,7 +11,6 @@ class Db {
 
     initializeFirebase() {
 
-        //load user and data and push to UserStore
         console.log("initializing database....");
     }
 
@@ -83,14 +82,13 @@ class Db {
         .catch(e => console.log(e));
     };
 
-    getWeight() {
+    getAllData() {
 
         const { currentUser } = firebase.auth();
 
         firebase.database().ref(`/users/${currentUser.uid}/stats`)
             .on('value', snapshot => {
-                UserStore.initializeStats(snapshot);
-                return snapshot.val();
+                UserStore.initializeStats(snapshot.val());
             });
     }
 

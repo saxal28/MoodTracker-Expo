@@ -10,7 +10,6 @@ import UserStore from "../../stores/UserStore";
 
 import {observer} from 'mobx-react';
 
-const handleSubmit = () => Actions.home();
 const setWeight = e => UserStore.setDailyWeight("weight", e);
 const setDate = e => UserStore.setDailyWeight("date", e);
 
@@ -38,13 +37,14 @@ export default class CheckIn extends React.Component {
 
     formatDisplayDate() {
         const {date} = UserStore.store.dailyWeight
+	    console.log('date', date)
+
         return formatDisplayDate(date);
     }
 
     saveStats() {
-        const { dailyWeight } = UserStore.store;
         UserStore.setDailyWeight("alreadyLogged", true);
-        UserStore.saveDailyStats(dailyWeight);
+        UserStore.saveDailyStats();
     }
 
     render() {
@@ -65,7 +65,7 @@ export default class CheckIn extends React.Component {
 
                     <View>
 
-                        <Title style={{color:'white'}}>Check In{weight}</Title>
+                        <Title style={{color:'white'}}>Check In</Title>
 
                         <Subtitle style={{color:'white'}}>
                             {formatDisplayDate()}
@@ -122,8 +122,6 @@ export default class CheckIn extends React.Component {
                         </Picker>
 
                     </View>
-
-                    {/*TODO -- create a note modal*/}
 
                     <View>
                         <StyledButton

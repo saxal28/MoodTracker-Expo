@@ -1,6 +1,7 @@
 import mobx from 'mobx';
 import {observable, action} from 'mobx';
 import {Firebase} from "../services/Firebase";
+import {daysArr} from "../util/utilityFunctions";
 
 class Store {
 
@@ -10,7 +11,7 @@ class Store {
         weight: [],
         dailyWeight: {
             weight: 170,
-            date: new Date(),
+            date: formatDate(new Date()),
             generatedPickerRange: 170,
             alreadyLogged: false
 
@@ -26,7 +27,17 @@ class Store {
         console.log(this, this.store, this.store.username)
     }
 
-    @action initializeStats(arr) {
+    @action initializeStats(data) {
+
+    	if(data) {
+
+    		console.log('data', data)
+
+		    Object.keys(data).forEach((uid, index) => {
+			    this.store.weight.push({...data[uid], uid})
+		    })
+
+	    }
 
     }
 
@@ -35,12 +46,18 @@ class Store {
         console.log(this.store.dailyWeight)
     }
 
-    @action saveDailyStats(dailyWeight){
+    @action saveDailyStats(){
+        const {dailyWeight} = this.store;
         Firebase.saveStats(dailyWeight);
     }
 
 }
 
+// 2017/05/27
+function formatDate(date) {
+	return `${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()}`
+
+}
 const UserStore = new Store();
 
 export default UserStore;

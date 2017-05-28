@@ -14,8 +14,7 @@ const Logo = ({style}) => {
 
 const styles = {
     imageStyle: {
-        height: 200,
-        flexGrow:1,
+        height: 100,
         alignSelf: 'center'
     },
     viewStyle: {

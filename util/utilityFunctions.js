@@ -55,7 +55,7 @@ const formatDisplayDate = (date) => {
     const day = date.getDate();
     const dayNamed = daysArr[date.getDay() + 1];
     const year = date.getFullYear()
-    return `${dayNamed}, ${month} ${day + 1}, ${year}`;
+    return `${month} ${day + 1}, ${year}`;
 }
 
 const doDatesMatch = ({date}) => {
