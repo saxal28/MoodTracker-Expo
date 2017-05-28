@@ -9,6 +9,7 @@ import _ from "lodash";
 import UserStore from "../../stores/UserStore";
 import {Container} from "../common/Container";
 import {observer} from 'mobx-react';
+import {Card, ListItem} from "react-native-elements";
 
 
 @observer
@@ -25,13 +26,20 @@ export default class Stats extends React.Component {
 		return (
 			<Container>
 
-				{
-					UserStore.store.weight.map(stat => {
-						return (
-							<Text key={stat.uid}>{stat.date} - {stat.weight}</Text>
-						)
-					})
-				}
+				<Card
+					title='CARD WITH DIVIDER'>
+
+					{
+						UserStore.store.weight.map(stat => {
+							return (
+								<ListItem
+									title={`${stat.date} - ${stat.weight}`}
+									key={stat.uid}/>
+							)
+						})
+					}
+
+				</Card>
 
 				<StyledButton
 					title="home"
